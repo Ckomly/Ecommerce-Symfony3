@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Rate</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ rate.id }}</td>
+            </tr>
+            <tr>
+                <th>Value</th>
+                <td>{{ rate.value }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if rate.date %}{{ rate.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Comment</th>
+                <td>{{ rate.comment }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('rate_edit', { 'id': rate.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,27 @@
+ca_commerce_product:
+    resource: "@CACommerceBundle/Resources/config/routing/product.yml"
+    prefix:   /product
+
+ca_commerce_user:
+        resource: "@CACommerceBundle/Resources/config/routing/user.yml"
+        prefix:   /user
+
+ca_commerce_category:
+        resource: "@CACommerceBundle/Resources/config/routing/category.yml"
+        prefix:   /category
+
+ca_commerce_rate:
+        resource: "@CACommerceBundle/Resources/config/routing/rate.yml"
+        prefix:   /rate
+
+
+login:
+    path:     /login
+    defaults: { _controller: CACommerceBundle:Session:login }
+
+logout:
+    path: /logout
+
+ca_commerce_homepage:
+    path:     /
+    defaults: { _controller: CACommerceBundle:Default:index }

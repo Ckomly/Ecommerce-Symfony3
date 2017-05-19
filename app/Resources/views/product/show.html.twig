@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Product</h1>
+
+    <table class="table table-striped">
+        <tbody >
+            <tr>
+                <th>Id</th>
+                <td>{{ product.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ product.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ product.description }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ product.price }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="panel panel-default">
+        {% for rate in rates %}
+        <div class="panel-heading">
+          <p>Date: {{ rate.date|date('Y-m-d') }}</p>
+        </div>
+        <div class="panel-body">
+          <p>Rate: {{ rate.value }}</p>
+          <p>Comment: {{ rate.comment }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <ul>
+        <li>
+            <a href="{{ path('product_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('product_edit', { 'id': product.id }) }}">Edit</a>
+        </li>
+        <li>
+            <a href="{{ path('rate_new', { 'id': product.id }) }}">Rate</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

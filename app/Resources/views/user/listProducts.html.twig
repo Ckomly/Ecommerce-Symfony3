@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <h1>Posts of {{user.username}}</h1>
+  {% for product in listProducts %}
+    <div class=””>
+      <p><a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.name }} </a></p>
+      <p>{{ product.description }}</p>
+    </div>
+  {% endfor %}
+{% endblock %}

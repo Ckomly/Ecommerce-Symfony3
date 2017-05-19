@@ -1,0 +1,7 @@
+ca_commerce:
+    resource: "@CACommerceBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
