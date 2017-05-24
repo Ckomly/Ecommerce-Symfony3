@@ -14,6 +14,9 @@ ca_commerce_rate:
         resource: "@CACommerceBundle/Resources/config/routing/rate.yml"
         prefix:   /rate
 
+ca_commerce_bid:
+        resource: "@CACommerceBundle/Resources/config/routing/bid.yml"
+        prefix:   /bid
 
 login:
     path:     /login

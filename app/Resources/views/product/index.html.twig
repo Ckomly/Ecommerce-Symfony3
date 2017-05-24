@@ -23,7 +23,7 @@
                 <td>
                     <a href="{{ path('product_show', { 'id': product.id }) }}" class="btn btn-outline-primary">show</a>
                     <a href="{{ path('product_edit', { 'id': product.id }) }}" class="btn btn-outline-primary">edit</a>
-                    <a href="{{ path('rate_new', { 'id': product.id }) }}" class="btn btn-outline-primary">Rate</a>
+                    <a href="{{ path('rate_new', { 'id': product.id, 'type': 'product' }) }}" class="btn btn-outline-primary">Rate</a>
                 </td>
             </tr>
         {% endfor %}

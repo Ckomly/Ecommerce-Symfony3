@@ -123,8 +123,8 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
             // product_show
             if (preg_match('#^/product/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
                     goto not_product_show;
                 }
 
@@ -350,6 +350,68 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'rate_delete')), array (  '_controller' => 'CA\\CommerceBundle\\Controller\\RateController::deleteAction',));
             }
             not_rate_delete:
+
+        }
+
+        if (0 === strpos($pathinfo, '/bid')) {
+            // bid_index
+            if (rtrim($pathinfo, '/') === '/bid') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_bid_index;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'bid_index');
+                }
+
+                return array (  '_controller' => 'CA\\CommerceBundle\\Controller\\BidController::indexAction',  '_route' => 'bid_index',);
+            }
+            not_bid_index:
+
+            // bid_show
+            if (preg_match('#^/bid/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_bid_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'bid_show')), array (  '_controller' => 'CA\\CommerceBundle\\Controller\\BidController::showAction',));
+            }
+            not_bid_show:
+
+            // bid_new
+            if ($pathinfo === '/bid/new') {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_bid_new;
+                }
+
+                return array (  '_controller' => 'CA\\CommerceBundle\\Controller\\BidController::newAction',  '_route' => 'bid_new',);
+            }
+            not_bid_new:
+
+            // bid_edit
+            if (preg_match('#^/bid/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_bid_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'bid_edit')), array (  '_controller' => 'CA\\CommerceBundle\\Controller\\BidController::editAction',));
+            }
+            not_bid_edit:
+
+            // bid_delete
+            if (preg_match('#^/bid/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'DELETE') {
+                    $allow[] = 'DELETE';
+                    goto not_bid_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'bid_delete')), array (  '_controller' => 'CA\\CommerceBundle\\Controller\\BidController::deleteAction',));
+            }
+            not_bid_delete:
 
         }
 

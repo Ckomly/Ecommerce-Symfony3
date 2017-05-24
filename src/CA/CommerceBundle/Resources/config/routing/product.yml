@@ -6,7 +6,12 @@ product_index:
 product_show:
     path:     /{id}/show
     defaults: { _controller: "CACommerceBundle:Product:show" }
-    methods:  GET
+    methods:  [GET, POST]
+
+# product_show:
+#     path:     /{id}/show
+#     defaults: { _controller: "CACommerceBundle:Bid:new" }
+#     methods:  [PUT]
 
 product_new:
     path:     /new

@@ -51,9 +51,37 @@ class Product
     /**
      * @var int
      *
+     * @ORM\Column(name="pricestart", type="integer")
+     */
+    private $pricestart;
+
+    /**
+     * @var int
+     *
      * @ORM\Column(name="price", type="integer")
      */
     private $price;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="buyout", type="integer", nullable=true)
+     */
+    private $buyout = null;
+
+    /**
+     * @var \Date
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="endingdate", type="datetime")
+     */
+    private $endingdate;
 
 
     /**
@@ -180,5 +208,101 @@ class Product
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set pricestart
+     *
+     * @param integer $pricestart
+     *
+     * @return Product
+     */
+    public function setPricestart($pricestart)
+    {
+        $this->pricestart = $pricestart;
+
+        return $this;
+    }
+
+    /**
+     * Get pricestart
+     *
+     * @return integer
+     */
+    public function getPricestart()
+    {
+        return $this->pricestart;
+    }
+
+    /**
+     * Set buyout
+     *
+     * @param integer $buyout
+     *
+     * @return Product
+     */
+    public function setBuyout($buyout)
+    {
+        $this->buyout = $buyout;
+
+        return $this;
+    }
+
+    /**
+     * Get buyout
+     *
+     * @return integer
+     */
+    public function getBuyout()
+    {
+        return $this->buyout;
+    }
+
+    /**
+     * Set endingdate
+     *
+     * @param \DateTime $endingdate
+     *
+     * @return Product
+     */
+    public function setEndingdate($endingdate)
+    {
+        $this->endingdate = $endingdate;
+
+        return $this;
+    }
+
+    /**
+     * Get endingdate
+     *
+     * @return \DateTime
+     */
+    public function getEndingdate()
+    {
+        return $this->endingdate;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Product
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
 }

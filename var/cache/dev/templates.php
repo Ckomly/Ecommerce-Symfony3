@@ -121,6 +121,10 @@
   ':layout:navbar.html.twig' => __DIR__.'/../../../app/Resources/views/layout/navbar.html.twig',
   ':default:index.html.twig' => __DIR__.'/../../../app/Resources/views/default/index.html.twig',
   '::base.html.twig' => __DIR__.'/../../../app/Resources/views/base.html.twig',
+  ':rate:edit.html.twig' => __DIR__.'/../../../app/Resources/views/rate/edit.html.twig',
+  ':rate:new.html.twig' => __DIR__.'/../../../app/Resources/views/rate/new.html.twig',
+  ':rate:index.html.twig' => __DIR__.'/../../../app/Resources/views/rate/index.html.twig',
+  ':rate:show.html.twig' => __DIR__.'/../../../app/Resources/views/rate/show.html.twig',
   ':category:edit.html.twig' => __DIR__.'/../../../app/Resources/views/category/edit.html.twig',
   ':category:new.html.twig' => __DIR__.'/../../../app/Resources/views/category/new.html.twig',
   ':category:index.html.twig' => __DIR__.'/../../../app/Resources/views/category/index.html.twig',
@@ -129,4 +133,5 @@
   ':user:new.html.twig' => __DIR__.'/../../../app/Resources/views/user/new.html.twig',
   ':user:index.html.twig' => __DIR__.'/../../../app/Resources/views/user/index.html.twig',
   ':user:show.html.twig' => __DIR__.'/../../../app/Resources/views/user/show.html.twig',
+  ':user:listProducts.html.twig' => __DIR__.'/../../../app/Resources/views/user/listProducts.html.twig',
 );

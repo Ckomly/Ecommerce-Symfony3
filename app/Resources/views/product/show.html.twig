@@ -1,54 +1,87 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Product</h1>
+        <div class="container">
+            <div class="card">
+              <div class="container-fliud">
+                <div class="wrapper row">
+                  <div class="preview col-md-4">
 
-    <table class="table table-striped">
-        <tbody >
-            <tr>
-                <th>Id</th>
-                <td>{{ product.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ product.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ product.description }}</td>
-            </tr>
-            <tr>
-                <th>Price</th>
-                <td>{{ product.price }}</td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="panel panel-default">
-        {% for rate in rates %}
-        <div class="panel-heading">
-          <p>Date: {{ rate.date|date('Y-m-d') }}</p>
-        </div>
-        <div class="panel-body">
-          <p>Rate: {{ rate.value }}</p>
-          <p>Comment: {{ rate.comment }}</p>
-        </div>
-        {% endfor %}
-    </div>
+                    <div class="preview col-md-2">
+                      <div class="tab-pane active" id="pic-1"><img src="https://www.2checkout.com/upload/images/graphic_product_tangible.png" height="300" width="300"/></div>
+                    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('product_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('product_edit', { 'id': product.id }) }}">Edit</a>
-        </li>
-        <li>
-            <a href="{{ path('rate_new', { 'id': product.id }) }}">Rate</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                  </div>
+                  <div class="details col-md-6">
+                    <h3 class="product-title">{{ product.name }}</h3>
+                    <div class="rating">
+                      <div class="stars">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                      </div>
+                    </div>
+                    <p class="product-description">{{ product.description }}</p>
+
+                    <h4>price start: <span>{{ product.pricestart }} €</span></h4>
+                    <h4 class="price">current price: <span>{{ product.price }} €</span></h4>
+                    <h4>buy out: <span>{{ product.buyout }} €</span></h4>
+                    <p>User have bids this product <strong>{{  bids | length }}</strong> times</p>
+
+                    {% set sumratings = 0 %}
+                    {% for rating in rates %}
+                      {% set sumratings = sumratings + rating.value %}
+                    {% endfor %}
+
+                    <p class="vote"><strong>{{  (sumratings / rates|length) | round }} / 5</strong> is the average note of this product! <strong>( {{ rates | length }} votes)</strong></p>
+                    <div class="action">
+
+                      {{ form_start(form) }}
+                          <p>{{ form_widget(form) }}
+                          <input type="submit" value="Bid" class="btn btn-warning btn-md"/></p>
+                          <p>{{ error }}</p>
+                      {{ form_end(form) }}
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <h3> Last comment</h3>
+        <div>
+            {% set bid = bids | last %}
+            <div class="alert alert-info">
+               Last bid:<strong> {{ bid.amount }} €</strong> has been bade by {{ bid.user.username }}
+            </div>
+        </div>
+        <div class="panel panel-default">
+            {% set rate = rates | last %}
+            <div class="panel-heading">
+              <p>Date: {{ rate.date|date('Y-m-d') }} by {{ rate.name }}</p>
+            </div>
+            <div class="panel-body">
+              <p>Rate: {{ rate.value }}</p>
+              <p>Comment: {{ rate.comment }}</p>
+            </div>
+        </div>
+
+        <ul>
+            <li>
+                <a href="{{ path('product_index') }}">Back to the list</a>
+            </li>
+            <li>
+                <a href="{{ path('product_edit', { 'id': product.id }) }}">Edit</a>
+            </li>
+            <li>
+                <a href="{{ path('rate_new', { 'id': product.id, 'type': 'product' }) }}">Rate</a>
+            </li>
+            <li>
+                {{ form_start(delete_form) }}
+                    <input type="submit" value="Delete">
+                {{ form_end(delete_form) }}
+            </li>
+        </ul>
 {% endblock %}

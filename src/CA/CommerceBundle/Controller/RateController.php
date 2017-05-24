@@ -36,20 +36,37 @@ class RateController extends Controller
         $em = $this->getDoctrine()->getManager();
         $rate = new Rate();
         $form = $this->createForm('CA\CommerceBundle\Form\RateType', $rate);
-        $form->handleRequest($request);
+        $form->handleRequest($request);;
+        $type = $request->query->get('type');
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $idproduct = $request->query->get('id');
-            $product = $em->getRepository('CACommerceBundle:Product')->find($idproduct);
+            $id = $request->query->get('id');
+            $name = $this->getUser()->getUsername();
+            if ($type == 'product'){
+              $product = $em->getRepository('CACommerceBundle:Product')->find($id);
+              //set Product value.
+              $rate->setProduct($product);
+            }
+            else{
+              $user = $em->getRepository('CACommerceBundle:User')->find($id);
+              //set User value.
+              $rate->setUser($user);
+            }
             //set Date value.
             $rate->setDate(new \ datetime());
-            //set Product value.
-            $rate->setProduct($product);
+            //set Name value.
+            $rate->setName($name);
 
             $em->persist($rate);
             $em->flush();
 
-            return $this->redirectToRoute('product_index');
+            if ($type == 'product'){
+              return $this->redirectToRoute('product_show', array('id' => $product->getId()));
+            }
+            else{
+              return $this->redirectToRoute('user_show', array('id' => $user->getId()));
+            }
+
         }
 
         return $this->render('rate/new.html.twig', array(

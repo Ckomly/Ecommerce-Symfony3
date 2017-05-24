@@ -64,10 +64,14 @@ class UserController extends Controller
      */
     public function showAction(User $user)
     {
+        $em = $this->getDoctrine()->getManager();
+        $rates = $em->getRepository('CACommerceBundle:Rate')->findByUser($user);
+
         $deleteForm = $this->createDeleteForm($user);
 
         return $this->render('user/show.html.twig', array(
             'user' => $user,
+            'rates' => $rates,
             'delete_form' => $deleteForm->createView(),
         ));
     }

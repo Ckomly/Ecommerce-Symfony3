@@ -13,6 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
 class Rate
 {
     /**
+     * @ORM\ManyToOne(targetEntity="CA\CommerceBundle\Entity\User")
+     * @ORM\JoinColumn(onDelete="SET NULL")
+     */
+    private $user;
+
+    /**
      * @ORM\ManyToOne(targetEntity="CA\CommerceBundle\Entity\Product")
      * @ORM\JoinColumn(onDelete="SET NULL")
      */
@@ -47,6 +53,12 @@ class Rate
      */
     private $comment;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
 
     /**
      * Get id
@@ -152,5 +164,53 @@ class Rate
     public function getProduct()
     {
         return $this->product;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \CA\CommerceBundle\Entity\User $user
+     *
+     * @return Rate
+     */
+    public function setUser(\CA\CommerceBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \CA\CommerceBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Rate
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }
