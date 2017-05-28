@@ -1,6 +1,57 @@
-{% extends 'base.html.twig' %}
-
+{% extends "::base.html.twig" %}
 
 {% block body %}
-<h1>INDEX</h1>
+<div class="container">
+    <h2> Last 4 articles </h2>
+</div>
+<div class="container-outpadding" style=" margin-bottom:20.5em;">
+      {% for product in products %}
+    	<div class="col-xs-12 col-sm-6 col-md-3" style="margin-top:1em;">
+            <div class="col-item">
+                <div class="post-img-content">
+                    <img src="http://placehold.it/350x260" class="img-responsive" />
+                    <span class="post-title">
+                        <b><a href="{{ path('product_show', { 'id': product.id }) }}">{{product.name}}</a></b><br>
+                        <b>{{product.category.name ?? 'no category'}}</b>
+                    </span>
+                    {% if "now"|date('Ymd')  > product.endingdate|date('Ymd') %}
+                        <span class="round-tag out">Out</span>
+                    {% else %}
+                        <span class="round-tag">{{product.price}} €</span>
+                    {% endif %}
+                </div>
+                <div class="info">
+                    <div class="row">
+                        <div class="price col-md-10">
+                            <h5>End the : {{ product.endingdate | date('Y-m-d')}}</h5>
+                        </div>
+                    </div>
+                    <div class="separator clear-left">
+                        <p class="btn-details">
+                            <a href="{{ path('product_show', { 'id': product.id }) }}">more details</a>
+                        </p>
+                    </div>
+                    <div class="clearfix">
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+<div class="container">
+    <h2> Last 4 bids </h2>
+</div>
+<div class="separation">
+
+    {% for bid in bids %}
+        {% set difference = date("now").diff(bid.date) %}
+        <div></div>
+        <div class="alert alert-info">
+            <strong>{{ bid.user.username ?? 'Unknown'}}</strong> has bid <strong>{{ bid.amount }}€</strong> on <strong>{{ bid.product.name ?? 'a deleted product'}}</strong>.
+            {{ difference.d }} days, {{ difference.h }} hours, {{ difference.i }} minutes, {{ difference.s }} secondes ago.
+        </div>
+    {% endfor %}
+</div>
+
 {% endblock %}

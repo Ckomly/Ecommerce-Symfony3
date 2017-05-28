@@ -1,6 +1,6 @@
 <?php
 
-/* :category:index.html.twig */
+/* category/index.html.twig */
 class __TwigTemplate_1c89d0fbc56f5f67753a90159bdfd70ecaa350e4a39ce26d3becc30c09491855 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -8,7 +8,7 @@ class __TwigTemplate_1c89d0fbc56f5f67753a90159bdfd70ecaa350e4a39ce26d3becc30c094
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("base.html.twig", ":category:index.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "category/index.html.twig", 1);
         $this->blocks = array(
             'body' => array($this, 'block_body'),
         );
@@ -21,104 +21,70 @@ class __TwigTemplate_1c89d0fbc56f5f67753a90159bdfd70ecaa350e4a39ce26d3becc30c094
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_04ec1b3cf11e431a105ec35cfaa1063a283e1730537ddfc9da26563a1158d053 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_04ec1b3cf11e431a105ec35cfaa1063a283e1730537ddfc9da26563a1158d053->enter($__internal_04ec1b3cf11e431a105ec35cfaa1063a283e1730537ddfc9da26563a1158d053_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":category:index.html.twig"));
+        $__internal_4cb7f37750e71fc2c404f27ea9236cfdf263d4ca5d01d0dddd72007cae91bb82 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_4cb7f37750e71fc2c404f27ea9236cfdf263d4ca5d01d0dddd72007cae91bb82->enter($__internal_4cb7f37750e71fc2c404f27ea9236cfdf263d4ca5d01d0dddd72007cae91bb82_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "category/index.html.twig"));
 
-        $__internal_af8164f6dc453a30cd1f1775431a622ad138a13274402d373eb6f1bdbdeb33ae = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_af8164f6dc453a30cd1f1775431a622ad138a13274402d373eb6f1bdbdeb33ae->enter($__internal_af8164f6dc453a30cd1f1775431a622ad138a13274402d373eb6f1bdbdeb33ae_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":category:index.html.twig"));
+        $__internal_d3eacf8dcbfbd14ddcf13b937921a6e6a2db93e8ceb857a79c3574cf398feb51 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_d3eacf8dcbfbd14ddcf13b937921a6e6a2db93e8ceb857a79c3574cf398feb51->enter($__internal_d3eacf8dcbfbd14ddcf13b937921a6e6a2db93e8ceb857a79c3574cf398feb51_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "category/index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_04ec1b3cf11e431a105ec35cfaa1063a283e1730537ddfc9da26563a1158d053->leave($__internal_04ec1b3cf11e431a105ec35cfaa1063a283e1730537ddfc9da26563a1158d053_prof);
+        $__internal_4cb7f37750e71fc2c404f27ea9236cfdf263d4ca5d01d0dddd72007cae91bb82->leave($__internal_4cb7f37750e71fc2c404f27ea9236cfdf263d4ca5d01d0dddd72007cae91bb82_prof);
 
         
-        $__internal_af8164f6dc453a30cd1f1775431a622ad138a13274402d373eb6f1bdbdeb33ae->leave($__internal_af8164f6dc453a30cd1f1775431a622ad138a13274402d373eb6f1bdbdeb33ae_prof);
+        $__internal_d3eacf8dcbfbd14ddcf13b937921a6e6a2db93e8ceb857a79c3574cf398feb51->leave($__internal_d3eacf8dcbfbd14ddcf13b937921a6e6a2db93e8ceb857a79c3574cf398feb51_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_9b983ba358649c9369580b16abfb538c76a9f348b5b96675227d4dbdc48931e0 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_9b983ba358649c9369580b16abfb538c76a9f348b5b96675227d4dbdc48931e0->enter($__internal_9b983ba358649c9369580b16abfb538c76a9f348b5b96675227d4dbdc48931e0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_f15b6a70ee615e603ae872b889316f02b23b4b6ec1fad06bdf36337dc657038b = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_f15b6a70ee615e603ae872b889316f02b23b4b6ec1fad06bdf36337dc657038b->enter($__internal_f15b6a70ee615e603ae872b889316f02b23b4b6ec1fad06bdf36337dc657038b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_d64e9268c5905e4819cb55b9a7869854d62a5679af15432eaf6211fc07b8f741 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_d64e9268c5905e4819cb55b9a7869854d62a5679af15432eaf6211fc07b8f741->enter($__internal_d64e9268c5905e4819cb55b9a7869854d62a5679af15432eaf6211fc07b8f741_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_b59441d8d65d97bb81cee5639962fa762d6ef4ab96c1dc9a318f00087cee104d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b59441d8d65d97bb81cee5639962fa762d6ef4ab96c1dc9a318f00087cee104d->enter($__internal_b59441d8d65d97bb81cee5639962fa762d6ef4ab96c1dc9a318f00087cee104d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo "    <h1>Categories list</h1>
-
-    <table class=\"table table-striped\">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
         ";
-        // line 16
+        // line 5
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["categories"] ?? $this->getContext($context, "categories")));
         foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-            // line 17
-            echo "            <tr>
-                <td><a href=\"";
-            // line 18
+            // line 6
+            echo "            <a class=\"btn btn-success btn-outline category\" href=\"";
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("category_show", array("id" => $this->getAttribute($context["category"], "id", array()))), "html", null, true);
-            echo "\">";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["category"], "id", array()), "html", null, true);
-            echo "</a></td>
-                <td>";
-            // line 19
+            echo "\" class=\"btn btn-outline-primary\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["category"], "name", array()), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 20
-            echo twig_escape_filter($this->env, $this->getAttribute($context["category"], "category", array()), "html", null, true);
-            echo "</td>
-                <td>
-                    <a href=\"";
-            // line 22
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("category_show", array("id" => $this->getAttribute($context["category"], "id", array()))), "html", null, true);
-            echo "\" class=\"btn btn-outline-primary\">show</a>
-                    <a href=\"";
-            // line 23
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("category_edit", array("id" => $this->getAttribute($context["category"], "id", array()))), "html", null, true);
-            echo "\" class=\"btn btn-outline-primary\">edit</a>
-                </td>
-            </tr>
+            echo "</a>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 27
-        echo "        </tbody>
-    </table>
-
+        // line 8
+        echo "
     <ul>
         <li>
-            <a href=\"";
-        // line 32
+            <a class=\"btn btn-primary btn-outline\" href=\"";
+        // line 11
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("category_new");
         echo "\">Create a new category</a>
         </li>
     </ul>
 ";
         
-        $__internal_d64e9268c5905e4819cb55b9a7869854d62a5679af15432eaf6211fc07b8f741->leave($__internal_d64e9268c5905e4819cb55b9a7869854d62a5679af15432eaf6211fc07b8f741_prof);
+        $__internal_b59441d8d65d97bb81cee5639962fa762d6ef4ab96c1dc9a318f00087cee104d->leave($__internal_b59441d8d65d97bb81cee5639962fa762d6ef4ab96c1dc9a318f00087cee104d_prof);
 
         
-        $__internal_9b983ba358649c9369580b16abfb538c76a9f348b5b96675227d4dbdc48931e0->leave($__internal_9b983ba358649c9369580b16abfb538c76a9f348b5b96675227d4dbdc48931e0_prof);
+        $__internal_f15b6a70ee615e603ae872b889316f02b23b4b6ec1fad06bdf36337dc657038b->leave($__internal_f15b6a70ee615e603ae872b889316f02b23b4b6ec1fad06bdf36337dc657038b_prof);
 
     }
 
     public function getTemplateName()
     {
-        return ":category:index.html.twig";
+        return "category/index.html.twig";
     }
 
     public function isTraitable()
@@ -128,7 +94,7 @@ class __TwigTemplate_1c89d0fbc56f5f67753a90159bdfd70ecaa350e4a39ce26d3becc30c094
 
     public function getDebugInfo()
     {
-        return array (  106 => 32,  99 => 27,  89 => 23,  85 => 22,  80 => 20,  76 => 19,  70 => 18,  67 => 17,  63 => 16,  49 => 4,  40 => 3,  11 => 1,);
+        return array (  72 => 11,  67 => 8,  56 => 6,  52 => 5,  49 => 4,  40 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -145,37 +111,16 @@ class __TwigTemplate_1c89d0fbc56f5f67753a90159bdfd70ecaa350e4a39ce26d3becc30c094
 
 {% block body %}
     <h1>Categories list</h1>
-
-    <table class=\"table table-striped\">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
         {% for category in categories %}
-            <tr>
-                <td><a href=\"{{ path('category_show', { 'id': category.id }) }}\">{{ category.id }}</a></td>
-                <td>{{ category.name }}</td>
-                <td>{{ category.category }}</td>
-                <td>
-                    <a href=\"{{ path('category_show', { 'id': category.id }) }}\" class=\"btn btn-outline-primary\">show</a>
-                    <a href=\"{{ path('category_edit', { 'id': category.id }) }}\" class=\"btn btn-outline-primary\">edit</a>
-                </td>
-            </tr>
+            <a class=\"btn btn-success btn-outline category\" href=\"{{ path('category_show', { 'id': category.id }) }}\" class=\"btn btn-outline-primary\">{{ category.name }}</a>
         {% endfor %}
-        </tbody>
-    </table>
 
     <ul>
         <li>
-            <a href=\"{{ path('category_new') }}\">Create a new category</a>
+            <a class=\"btn btn-primary btn-outline\" href=\"{{ path('category_new') }}\">Create a new category</a>
         </li>
     </ul>
 {% endblock %}
-", ":category:index.html.twig", "/home/lulu/Rendu/Symfony/Symfony_Commerce/Ecom/app/Resources/views/category/index.html.twig");
+", "category/index.html.twig", "/home/lulu/Rendu/Symfony/Symfony_Commerce/Ecom/app/Resources/views/category/index.html.twig");
     }
 }

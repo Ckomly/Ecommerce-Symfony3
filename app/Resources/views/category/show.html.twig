@@ -1,36 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Category</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ category.id }}</td>
+    <div>
+        {{ form_start(delete_form) }}
+            <h1>
+                Subcategory of <strong>{{ category.name }}</strong>   <a class="btn btn-warning btn-outline largebutton" href="{{ path('category_edit', { 'id': category.id }) }}">Edit</a>
+                <a class="btn btn-primary btn-outline btm-sm category" href="{{ path('category_index') }}">Back to the list</a>
+                <input class="btn btn-danger btn-outline btm-sm category" type="submit" value="Delete">
+            </h1>
+        {{ form_end(delete_form) }}
+    </div>
+    {% if categories is empty%}
+        <div class="alert alert-warning">
+           <strong> {{ category.name }} don't have subcategory yet. </strong>
+        </div>
+    {% endif %}
+    {% for cat in categories %}
+                <a class="btn btn-primary btn-outline category" href="{{ path('category_show', { 'id': cat.id }) }}">{{ cat.name }}</a>
             </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ category.name }}</td>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <td>{{ category.category }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('category_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('category_edit', { 'id': category.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    {% endfor %}
 {% endblock %}

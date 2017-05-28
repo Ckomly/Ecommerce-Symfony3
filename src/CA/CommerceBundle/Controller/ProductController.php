@@ -34,9 +34,16 @@ class ProductController extends Controller
      */
     public function newAction(Request $request)
     {
+
+        if(!$this->getUser()){
+          return $this->render('CACommerceBundle:Session:login.html.twig', array(
+              'last_username' => '',
+              'error' => array('action' => 'create','entity' => 'product'),
+          ));
+        }
+
         $product = new Product();
-        $product->setUser($this->getUser());
-        $form = $this->createForm('CA\CommerceBundle\Form\NewProductType', $product);
+        $form = $this->createForm('CA\CommerceBundle\Form\ProductType', $product);
         //reception de la method POST.
         $form->handleRequest($request);
 
@@ -48,6 +55,7 @@ class ProductController extends Controller
             $interval = new \DateInterval($params['endingdate']);
             $newtime = $time->add($interval);
           //Set some product informations who were not sent by the form.
+            $product->setUser($this->getUser());
             $product->setDate(new \DateTime());
             $product->setPrice($product->getPricestart());
             $product->setEndingdate($newtime);
@@ -76,8 +84,8 @@ class ProductController extends Controller
       //Declare new request, without it we can't send querries to DB.
         $request = Request::createFromGlobals();
         $em = $this->getDoctrine()->getManager();
-        $rates = $em->getRepository('CACommerceBundle:Rate')->findByProduct($product, array('id' => 'desc'));
-        $bids = $em->getRepository('CACommerceBundle:Bid')->findByProduct($product, array('id' => 'desc'));
+        $rates = $em->getRepository('CACommerceBundle:Rate')->findByProduct($product, array('id' => 'asc'));
+        $bids = $em->getRepository('CACommerceBundle:Bid')->findByProduct($product, array('id' => 'asc'));
       //Generate Bid form to enter the amount of the bid.
         $form = $this->createForm('CA\CommerceBundle\Form\BidType', $bid);
         $form->handleRequest($request);
@@ -87,11 +95,11 @@ class ProductController extends Controller
           $newprice = $product->getPrice() + $bid->getAmount();
           if ($newprice >= $product->getBuyout()){
             return $this->render('product/show.html.twig', array(
-                'error' => "you can't bis higher than the price max.",
+                'error' => "you can't bid higher than the price max.",
                 'product' => $product,
                 'rates' => $rates,
                 'delete_form' => $deleteForm->createView(),
-                'bid' => $bid,
+                'bids' => $bids,
                 'form' => $form->createView(),
             ));
           }
@@ -127,6 +135,12 @@ class ProductController extends Controller
      */
     public function editAction(Request $request, Product $product)
     {
+        if(!$this->getUser()){
+          return $this->render('CACommerceBundle:Session:login.html.twig', array(
+              'last_username' => '',
+              'error' => array('action' => 'edit','entity' => 'product'),
+          ));
+        }
         $deleteForm = $this->createDeleteForm($product);
         $editForm = $this->createForm('CA\CommerceBundle\Form\EditProductType', $product);
         $editForm->handleRequest($request);
@@ -150,6 +164,13 @@ class ProductController extends Controller
      */
     public function deleteAction(Request $request, Product $product)
     {
+        if(!$this->getUser()){
+          return $this->render('CACommerceBundle:Session:login.html.twig', array(
+              'last_username' => '',
+              'error' => array('action' => 'delete','entity' => 'product'),
+          ));
+        }
+
         $form = $this->createDeleteForm($product);
         $form->handleRequest($request);
 

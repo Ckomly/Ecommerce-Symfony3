@@ -1,37 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Rate</h1>
+    <h1>{{ product.name }}'s rates</h1>
+    <p class="btn btn-primary btn-outline btm-sm"><a href="{{ path('product_show', { 'id': product.id }) }}"><strong>Back to the product</strong></a> </p>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ rate.id }}</td>
-            </tr>
-            <tr>
-                <th>Value</th>
-                <td>{{ rate.value }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{% if rate.date %}{{ rate.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Comment</th>
-                <td>{{ rate.comment }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('rate_edit', { 'id': rate.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="panel panel-default">
+        {% for rate in listRates %}
+        <div class="panel-heading">
+          <p>Date: {{ rate.date|date('Y-m-d') }} by {{ rate.name }}</p>
+        </div>
+        <div class="panel-body">
+          <p>Rate: {{ rate.value }}</p>
+          <p>Comment: {{ rate.comment }}</p>
+        </div>
+        {% endfor %}
+    </div>
 {% endblock %}

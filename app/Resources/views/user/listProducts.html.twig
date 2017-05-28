@@ -1,11 +1,43 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-  <h1>Posts of {{user.username}}</h1>
+  <h1>Products of {{user.username}}</h1>
+  {% if listProducts is empty %}
+      <div class="alert alert-info">You don't have products in sell yet.</div>
+  {% endif %}
+      <a class="btn btn-primary btn-outline" href="{{ path('product_new') }}">Create a new product</a>
   {% for product in listProducts %}
-    <div class=””>
-      <p><a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.name }} </a></p>
-      <p>{{ product.description }}</p>
+  <div class="col-xs-12 col-sm-6 col-md-3" style="margin-top:2em;">
+        <div class="col-item">
+            <div class="post-img-content">
+                <img src="http://placehold.it/350x260" class="img-responsive" />
+                <span class="post-title">
+                    <b><a href="{{ path('product_show', { 'id': product.id }) }}">{{product.name}}</a></b><br>
+                    <b>{{product.category.name ?? 'no category'}}</b>
+                </span>
+                {% if "now"|date('Ymd')  > product.endingdate|date('Ymd') %}
+                    <span class="round-tag out">Out</span>
+                {% else %}
+                    <span class="round-tag">{{product.price}} €</span>
+                {% endif %}
+            </div>
+            <div class="info">
+                <div class="row">
+                    <div class="price col-md-10">
+                        <h5>End the : {{ product.endingdate | date('Y-m-d')}}</h5>
+                        <p>Added by {{ product.user.username }}</p>
+                    </div>
+                </div>
+                <div class="separator clear-left">
+                    <p class="btn-details">
+                        <a href="{{ path('product_show', { 'id': product.id }) }}">more details</a>
+                    </p>
+                </div>
+                <div class="clearfix">
+
+                </div>
+            </div>
+        </div>
     </div>
   {% endfor %}
 {% endblock %}

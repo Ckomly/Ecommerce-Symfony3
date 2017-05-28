@@ -21,143 +21,181 @@ class __TwigTemplate_7e0f6a5acbf709c76ff0dc40b25b3b9c5e461bc7dd7b57573f4088c4f2b
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_b62f5a16224ece98a572e89f53165549bb56b5b0cf5a7bfe0124cc8797e09965 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_b62f5a16224ece98a572e89f53165549bb56b5b0cf5a7bfe0124cc8797e09965->enter($__internal_b62f5a16224ece98a572e89f53165549bb56b5b0cf5a7bfe0124cc8797e09965_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "user/show.html.twig"));
+        $__internal_d728e1226883768a5e80e2bcc65f26bd03b2d2ce1a6c9860e698946e4af155e1 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_d728e1226883768a5e80e2bcc65f26bd03b2d2ce1a6c9860e698946e4af155e1->enter($__internal_d728e1226883768a5e80e2bcc65f26bd03b2d2ce1a6c9860e698946e4af155e1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "user/show.html.twig"));
 
-        $__internal_6d8da99cc019255d65f144ac3325b9cb629e96cb5d64f3407c8a92406c35ba25 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_6d8da99cc019255d65f144ac3325b9cb629e96cb5d64f3407c8a92406c35ba25->enter($__internal_6d8da99cc019255d65f144ac3325b9cb629e96cb5d64f3407c8a92406c35ba25_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "user/show.html.twig"));
+        $__internal_e30797581139230ae96804ae7ee691b339c06b485f03d59a2be7365671292750 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_e30797581139230ae96804ae7ee691b339c06b485f03d59a2be7365671292750->enter($__internal_e30797581139230ae96804ae7ee691b339c06b485f03d59a2be7365671292750_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "user/show.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_b62f5a16224ece98a572e89f53165549bb56b5b0cf5a7bfe0124cc8797e09965->leave($__internal_b62f5a16224ece98a572e89f53165549bb56b5b0cf5a7bfe0124cc8797e09965_prof);
+        $__internal_d728e1226883768a5e80e2bcc65f26bd03b2d2ce1a6c9860e698946e4af155e1->leave($__internal_d728e1226883768a5e80e2bcc65f26bd03b2d2ce1a6c9860e698946e4af155e1_prof);
 
         
-        $__internal_6d8da99cc019255d65f144ac3325b9cb629e96cb5d64f3407c8a92406c35ba25->leave($__internal_6d8da99cc019255d65f144ac3325b9cb629e96cb5d64f3407c8a92406c35ba25_prof);
+        $__internal_e30797581139230ae96804ae7ee691b339c06b485f03d59a2be7365671292750->leave($__internal_e30797581139230ae96804ae7ee691b339c06b485f03d59a2be7365671292750_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_301839bb6e48f50486ff05d49b8fc6986dec1238c1d9d4d087f5d36058721631 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_301839bb6e48f50486ff05d49b8fc6986dec1238c1d9d4d087f5d36058721631->enter($__internal_301839bb6e48f50486ff05d49b8fc6986dec1238c1d9d4d087f5d36058721631_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_f4897ccd6c4fe12b871e520eb48279034a7f190512527158b0d2b02507eaf343 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_f4897ccd6c4fe12b871e520eb48279034a7f190512527158b0d2b02507eaf343->enter($__internal_f4897ccd6c4fe12b871e520eb48279034a7f190512527158b0d2b02507eaf343_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_af8db9146a976e1cfae89bf4621457efacd30689f55759ff704ed0bbb27e16a4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_af8db9146a976e1cfae89bf4621457efacd30689f55759ff704ed0bbb27e16a4->enter($__internal_af8db9146a976e1cfae89bf4621457efacd30689f55759ff704ed0bbb27e16a4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_8df8bd8781fa93618dae5a88bc57e01bfff4134df4986e885dbe783f83b35664 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_8df8bd8781fa93618dae5a88bc57e01bfff4134df4986e885dbe783f83b35664->enter($__internal_8df8bd8781fa93618dae5a88bc57e01bfff4134df4986e885dbe783f83b35664_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
-        echo "    <h1>User</h1>
+        echo "    <div class=\"separation\">
+    ";
+        // line 5
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_start');
+        echo "
+        <a class=\"btn btn-primary btn-outline\" href=\"";
+        // line 6
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("user_index");
+        echo "\">Back to the list</a>
+        <a class=\"btn btn-warning btn-outline\" href=\"";
+        // line 7
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("user_edit", array("id" => $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "id", array()))), "html", null, true);
+        echo "\">Edit</a>
+        <input type=\"submit\" value=\"Delete\" class=\"btn btn-danger btn-outline\">
+    ";
+        // line 9
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_end');
+        echo "
+    </div>
 
+    <h1>";
+        // line 12
+        echo twig_escape_filter($this->env, $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "username", array()), "html", null, true);
+        echo "</h1>
     <table>
         <tbody>
             <tr>
                 <th>Id</th>
                 <td>";
-        // line 10
+        // line 17
         echo twig_escape_filter($this->env, $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "id", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Username</th>
                 <td>";
-        // line 14
+        // line 21
         echo twig_escape_filter($this->env, $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "username", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Firstname</th>
                 <td>";
-        // line 18
+        // line 25
         echo twig_escape_filter($this->env, $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "firstname", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Name</th>
                 <td>";
-        // line 22
+        // line 29
         echo twig_escape_filter($this->env, $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "name", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Email</th>
                 <td>";
-        // line 26
+        // line 33
         echo twig_escape_filter($this->env, $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "email", array()), "html", null, true);
         echo "</td>
             </tr>
         </tbody>
     </table>
 
+    ";
+        // line 38
+        if ( !twig_test_empty(($context["bids"] ?? $this->getContext($context, "bids")))) {
+            // line 39
+            echo "    <h3> Last bid <a class=\"btn btn-info btn-outline\" href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("product_show_bids", array("id" => $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "id", array()))), "html", null, true);
+            echo "\">Edit</a></h3>
+    <div classe=\"separation\">
+        ";
+            // line 41
+            $context["bid"] = twig_last($this->env, ($context["bids"] ?? $this->getContext($context, "bids")));
+            // line 42
+            echo "        <div class=\"alert alert-info\">
+           Last bid:<strong> ";
+            // line 43
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["bid"] ?? $this->getContext($context, "bid")), "amount", array()), "html", null, true);
+            echo " €</strong> has been bade by ";
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute(($context["bid"] ?? $this->getContext($context, "bid")), "user", array()), "username", array()), "html", null, true);
+            echo "
+        </div>
+    </div>
+    ";
+        }
+        // line 47
+        echo "
+    ";
+        // line 48
+        if ( !twig_test_empty(($context["rates"] ?? $this->getContext($context, "rates")))) {
+            // line 49
+            echo "    <h3> Last comment</h3>
     <div class=\"panel panel-default\">
         ";
-        // line 32
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(($context["rates"] ?? $this->getContext($context, "rates")));
-        foreach ($context['_seq'] as $context["_key"] => $context["rate"]) {
-            // line 33
+            // line 51
+            $context["rate"] = twig_last($this->env, ($context["rates"] ?? $this->getContext($context, "rates")));
+            // line 52
             echo "        <div class=\"panel-heading\">
-          <p>Date: ";
-            // line 34
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["rate"], "date", array()), "Y-m-d"), "html", null, true);
-            echo " by ";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["rate"], "name", array()), "html", null, true);
-            echo "</p>
+          <p>Date: <strong>";
+            // line 53
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute(($context["rate"] ?? $this->getContext($context, "rate")), "date", array()), "Y-m-d"), "html", null, true);
+            echo "</strong> by <strong>";
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["rate"] ?? $this->getContext($context, "rate")), "name", array()), "html", null, true);
+            echo "</strong></p>
         </div>
         <div class=\"panel-body\">
-          <p>Rate: ";
-            // line 37
-            echo twig_escape_filter($this->env, $this->getAttribute($context["rate"], "value", array()), "html", null, true);
-            echo "</p>
+          <div class=\"stars\">
+            Rate :
+            ";
+            // line 58
+            $context["value"] = twig_round($this->getAttribute(($context["rate"] ?? $this->getContext($context, "rate")), "value", array()));
+            // line 59
+            echo "            ";
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(range(1, 5));
+            foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
+                // line 60
+                echo "                ";
+                if (($context["i"] <= ($context["value"] ?? $this->getContext($context, "value")))) {
+                    // line 61
+                    echo "                  <span class=\"fa fa-star checked\"></span>
+                ";
+                } else {
+                    // line 63
+                    echo "                  <span class=\"fa fa-star\"></span>
+                  ";
+                }
+                // line 65
+                echo "            ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 66
+            echo "          </div>
           <p>Comment: ";
-            // line 38
-            echo twig_escape_filter($this->env, $this->getAttribute($context["rate"], "comment", array()), "html", null, true);
+            // line 67
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["rate"] ?? $this->getContext($context, "rate")), "comment", array()), "html", null, true);
             echo "</p>
         </div>
-        ";
+    </div>
+    ";
         }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rate'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 41
-        echo "    </div>
-
-    <ul>
-        <li>
-            <a href=\"";
-        // line 45
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("user_index");
-        echo "\">Back to the list</a>
-        </li>
-        <li>
-            <a href=\"";
-        // line 48
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("user_edit", array("id" => $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "id", array()))), "html", null, true);
-        echo "\">Edit</a>
-        </li>
-        <li>
-            <a href=\"";
-        // line 51
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("rate_new", array("id" => $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "id", array()), "type" => "user")), "html", null, true);
-        echo "\">Rate</a>
-        </li>
-        <li>
-            ";
-        // line 54
-        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_start');
-        echo "
-                <input type=\"submit\" value=\"Delete\">
-            ";
-        // line 56
-        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_end');
-        echo "
-        </li>
-    </ul>
-";
         
-        $__internal_af8db9146a976e1cfae89bf4621457efacd30689f55759ff704ed0bbb27e16a4->leave($__internal_af8db9146a976e1cfae89bf4621457efacd30689f55759ff704ed0bbb27e16a4_prof);
+        $__internal_8df8bd8781fa93618dae5a88bc57e01bfff4134df4986e885dbe783f83b35664->leave($__internal_8df8bd8781fa93618dae5a88bc57e01bfff4134df4986e885dbe783f83b35664_prof);
 
         
-        $__internal_301839bb6e48f50486ff05d49b8fc6986dec1238c1d9d4d087f5d36058721631->leave($__internal_301839bb6e48f50486ff05d49b8fc6986dec1238c1d9d4d087f5d36058721631_prof);
+        $__internal_f4897ccd6c4fe12b871e520eb48279034a7f190512527158b0d2b02507eaf343->leave($__internal_f4897ccd6c4fe12b871e520eb48279034a7f190512527158b0d2b02507eaf343_prof);
 
     }
 
@@ -173,7 +211,7 @@ class __TwigTemplate_7e0f6a5acbf709c76ff0dc40b25b3b9c5e461bc7dd7b57573f4088c4f2b
 
     public function getDebugInfo()
     {
-        return array (  151 => 56,  146 => 54,  140 => 51,  134 => 48,  128 => 45,  122 => 41,  113 => 38,  109 => 37,  101 => 34,  98 => 33,  94 => 32,  85 => 26,  78 => 22,  71 => 18,  64 => 14,  57 => 10,  49 => 4,  40 => 3,  11 => 1,);
+        return array (  188 => 67,  185 => 66,  179 => 65,  175 => 63,  171 => 61,  168 => 60,  163 => 59,  161 => 58,  151 => 53,  148 => 52,  146 => 51,  142 => 49,  140 => 48,  137 => 47,  128 => 43,  125 => 42,  123 => 41,  117 => 39,  115 => 38,  107 => 33,  100 => 29,  93 => 25,  86 => 21,  79 => 17,  71 => 12,  65 => 9,  60 => 7,  56 => 6,  52 => 5,  49 => 4,  40 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -189,8 +227,15 @@ class __TwigTemplate_7e0f6a5acbf709c76ff0dc40b25b3b9c5e461bc7dd7b57573f4088c4f2b
         return new Twig_Source("{% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>User</h1>
+    <div class=\"separation\">
+    {{ form_start(delete_form) }}
+        <a class=\"btn btn-primary btn-outline\" href=\"{{ path('user_index') }}\">Back to the list</a>
+        <a class=\"btn btn-warning btn-outline\" href=\"{{ path('user_edit', { 'id': user.id }) }}\">Edit</a>
+        <input type=\"submit\" value=\"Delete\" class=\"btn btn-danger btn-outline\">
+    {{ form_end(delete_form) }}
+    </div>
 
+    <h1>{{ user.username }}</h1>
     <table>
         <tbody>
             <tr>
@@ -216,34 +261,39 @@ class __TwigTemplate_7e0f6a5acbf709c76ff0dc40b25b3b9c5e461bc7dd7b57573f4088c4f2b
         </tbody>
     </table>
 
+    {% if not bids is empty %}
+    <h3> Last bid <a class=\"btn btn-info btn-outline\" href=\"{{ path('product_show_bids', { 'id': user.id }) }}\">Edit</a></h3>
+    <div classe=\"separation\">
+        {% set bid = bids | last %}
+        <div class=\"alert alert-info\">
+           Last bid:<strong> {{ bid.amount }} €</strong> has been bade by {{ bid.user.username }}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if not rates is empty %}
+    <h3> Last comment</h3>
     <div class=\"panel panel-default\">
-        {% for rate in rates %}
+        {% set rate = rates | last %}
         <div class=\"panel-heading\">
-          <p>Date: {{ rate.date|date('Y-m-d') }} by {{ rate.name }}</p>
+          <p>Date: <strong>{{ rate.date|date('Y-m-d') }}</strong> by <strong>{{ rate.name }}</strong></p>
         </div>
         <div class=\"panel-body\">
-          <p>Rate: {{ rate.value }}</p>
+          <div class=\"stars\">
+            Rate :
+            {% set value = (rate.value | round) %}
+            {% for i in 1..5 %}
+                {% if i <= value %}
+                  <span class=\"fa fa-star checked\"></span>
+                {% else %}
+                  <span class=\"fa fa-star\"></span>
+                  {% endif %}
+            {% endfor %}
+          </div>
           <p>Comment: {{ rate.comment }}</p>
         </div>
-        {% endfor %}
     </div>
-
-    <ul>
-        <li>
-            <a href=\"{{ path('user_index') }}\">Back to the list</a>
-        </li>
-        <li>
-            <a href=\"{{ path('user_edit', { 'id': user.id }) }}\">Edit</a>
-        </li>
-        <li>
-            <a href=\"{{ path('rate_new', { 'id': user.id, 'type': 'user' }) }}\">Rate</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type=\"submit\" value=\"Delete\">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    {% endif %}
 {% endblock %}
 ", "user/show.html.twig", "/home/lulu/Rendu/Symfony/Symfony_Commerce/Ecom/app/Resources/views/user/show.html.twig");
     }

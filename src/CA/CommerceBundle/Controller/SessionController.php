@@ -14,7 +14,7 @@ class SessionController extends Controller
           // Si le visiteur est déjà identifié, on le redirige vers l'accueil
           if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED'))
           {
-            return $this->redirectToRoute('index');
+            return $this->redirectToRoute('ca_commerce_homepage');
           }
 
           // Le service authentication_utils permet de récupérer le nom d'utilisateur

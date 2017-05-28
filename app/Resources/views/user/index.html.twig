@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Users list</h1>
+    <h1>Users list <a class="btn btn-primary btn-outline" href="{{ path('user_new') }}">Create a new user</a></h1>
 
     <table class="table table-striped">
         <thead>
@@ -23,18 +23,13 @@
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td>
-                    <a href="{{ path('user_show', { 'id': user.id }) }}" class="btn btn-outline-primary">show</a>
-                    <a href="{{ path('user_edit', { 'id': user.id }) }}" class="btn btn-outline-primary">edit</a>
-                    <a href="{{ path('rate_new', { 'id': user.id, 'type': 'user' }) }}" class="btn btn-outline-primary">Rate</a>
+                    <a href="{{ path('user_show', { 'id': user.id }) }}" class="btn btn-primary btn-outline">show</a>
+                    <a href="{{ path('user_edit', { 'id': user.id }) }}" class="btn btn-warning btn-outline">edit</a>
+                    <a href="{{ path('rate_new', { 'id': user.id, 'type': 'user' }) }}" class="btn btn-primary btn-outline">Rate</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('user_new') }}">Create a new user</a>
-        </li>
-    </ul>
 {% endblock %}

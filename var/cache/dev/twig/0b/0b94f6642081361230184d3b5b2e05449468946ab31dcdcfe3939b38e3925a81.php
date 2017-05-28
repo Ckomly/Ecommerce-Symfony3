@@ -15,11 +15,11 @@ class __TwigTemplate_adb71b2ecf2d36d09f1c24bcdb7d65c2ececcbf161919653a2638dd2b89
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_837bc41d683ab0d69de10d11d4a4beb119980287da900008dfe6ae23944fffab = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_837bc41d683ab0d69de10d11d4a4beb119980287da900008dfe6ae23944fffab->enter($__internal_837bc41d683ab0d69de10d11d4a4beb119980287da900008dfe6ae23944fffab_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "layout/navbar.html.twig"));
+        $__internal_b43016919679a1c2cf9232bfe4e2ad620ed48cc61923b489175cdff461f258a1 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_b43016919679a1c2cf9232bfe4e2ad620ed48cc61923b489175cdff461f258a1->enter($__internal_b43016919679a1c2cf9232bfe4e2ad620ed48cc61923b489175cdff461f258a1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "layout/navbar.html.twig"));
 
-        $__internal_81fc8b5072e9ec119a620b5e752c93db83fe01752febf9875aa717c01e628eb6 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_81fc8b5072e9ec119a620b5e752c93db83fe01752febf9875aa717c01e628eb6->enter($__internal_81fc8b5072e9ec119a620b5e752c93db83fe01752febf9875aa717c01e628eb6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "layout/navbar.html.twig"));
+        $__internal_f300992c1db636db4425acf4d4538a161d9ccc5a27301e571307098db9f39ca1 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_f300992c1db636db4425acf4d4538a161d9ccc5a27301e571307098db9f39ca1->enter($__internal_f300992c1db636db4425acf4d4538a161d9ccc5a27301e571307098db9f39ca1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "layout/navbar.html.twig"));
 
         // line 1
         echo "<nav class=\"navbar navbar-inverse\">
@@ -55,34 +55,38 @@ class __TwigTemplate_adb71b2ecf2d36d09f1c24bcdb7d65c2ececcbf161919653a2638dd2b89
             echo " </p>
           <li><a href=\"";
             // line 15
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("user_show", array("id" => $this->getAttribute($this->getAttribute(($context["app"] ?? $this->getContext($context, "app")), "user", array()), "id", array()))), "html", null, true);
+            echo "\">My profil</a></li>
+          <li><a href=\"";
+            // line 16
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("user_list_products", array("id" => $this->getAttribute($this->getAttribute(($context["app"] ?? $this->getContext($context, "app")), "user", array()), "id", array()))), "html", null, true);
             echo "\">My products</a></li>
           <li><a href=\"";
-            // line 16
+            // line 17
             echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("logout");
             echo "\">Logout</a></li>
       ";
         } else {
-            // line 18
+            // line 19
             echo "          <li><a href=\"";
             echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("user_new");
             echo "\">Register</a></li>
           <li><a href=\"";
-            // line 19
+            // line 20
             echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("login");
             echo "\"> Login</a></li>
       ";
         }
-        // line 21
+        // line 22
         echo "    </ul>
   </div>
 </nav>
 ";
         
-        $__internal_837bc41d683ab0d69de10d11d4a4beb119980287da900008dfe6ae23944fffab->leave($__internal_837bc41d683ab0d69de10d11d4a4beb119980287da900008dfe6ae23944fffab_prof);
+        $__internal_b43016919679a1c2cf9232bfe4e2ad620ed48cc61923b489175cdff461f258a1->leave($__internal_b43016919679a1c2cf9232bfe4e2ad620ed48cc61923b489175cdff461f258a1_prof);
 
         
-        $__internal_81fc8b5072e9ec119a620b5e752c93db83fe01752febf9875aa717c01e628eb6->leave($__internal_81fc8b5072e9ec119a620b5e752c93db83fe01752febf9875aa717c01e628eb6_prof);
+        $__internal_f300992c1db636db4425acf4d4538a161d9ccc5a27301e571307098db9f39ca1->leave($__internal_f300992c1db636db4425acf4d4538a161d9ccc5a27301e571307098db9f39ca1_prof);
 
     }
 
@@ -98,7 +102,7 @@ class __TwigTemplate_adb71b2ecf2d36d09f1c24bcdb7d65c2ececcbf161919653a2638dd2b89
 
     public function getDebugInfo()
     {
-        return array (  77 => 21,  72 => 19,  67 => 18,  62 => 16,  58 => 15,  53 => 14,  51 => 13,  44 => 9,  40 => 8,  36 => 7,  30 => 4,  25 => 1,);
+        return array (  81 => 22,  76 => 20,  71 => 19,  66 => 17,  62 => 16,  58 => 15,  53 => 14,  51 => 13,  44 => 9,  40 => 8,  36 => 7,  30 => 4,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -125,6 +129,7 @@ class __TwigTemplate_adb71b2ecf2d36d09f1c24bcdb7d65c2ececcbf161919653a2638dd2b89
     <ul class=\"nav navbar-nav navbar-right\">
       {% if app.user %}
           <p class=\"navbar-brand\"> Connected as {{ app.user.username }} </p>
+          <li><a href=\"{{ path('user_show', { 'id': app.user.id }) }}\">My profil</a></li>
           <li><a href=\"{{ path('user_list_products', { 'id': app.user.id }) }}\">My products</a></li>
           <li><a href=\"{{ path('logout') }}\">Logout</a></li>
       {% else %}

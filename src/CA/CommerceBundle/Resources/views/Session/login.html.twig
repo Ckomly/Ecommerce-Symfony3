@@ -3,9 +3,14 @@
 {% block title %}CABlogBundle:SessionController:login{% endblock %}
 
 {% block body %}
-
   {% if error %}
-    <div class="alert alert-danger">{{ error.message }}</div>
+      {% if error.action == 'create'%}
+          <div class="alert alert-danger">You have to be logged in to <strong>{{ error.action }}</strong> a <strong>{{ error.entity }}</strong>.</div>
+      {% elseif error.action == 'edit' %}
+          <div class="alert alert-danger">You have to be logged in to <strong>{{ error.action }}</strong> a <strong>{{ error.entity }}</strong>.</div>
+      {% elseif error.action == 'delete' %}
+          <div class="alert alert-danger">You have to be logged in to <strong>{{ error.action }}</strong> a <strong>{{ error.entity }}</strong>.</div>
+      {% endif %}
   {% endif %}
 
   <form action="{{ path('login') }}" method="post">

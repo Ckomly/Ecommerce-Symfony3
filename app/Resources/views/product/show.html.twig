@@ -1,6 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+        <div class="separation">
+        {{ form_start(delete_form) }}
+            <a class="btn btn-primary btn-outline" href="{{ path('product_index') }}">Back to the list</a>
+            {% if "now"|date('Ymd')  < product.endingdate|date('Ymd') %}
+                <a class="btn btn-warning btn-outline" href="{{ path('product_edit', { 'id': product.id }) }}">Edit</a>
+                <input type="submit" value="Delete" class="btn btn-danger btn-outline">
+            {% endif %}
+        {{ form_end(delete_form) }}
+        </div>
+
+        {% set sumratings = 0 %}
+        {% if rates is empty %}
+        {% else %}
+          {% for rating in rates %}
+            {% set sumratings = sumratings + rating.value %}
+          {% endfor %}
+          {% set sumratings = (sumratings / rates|length) | round %}
+        {% endif %}
+
         <div class="container">
             <div class="card">
               <div class="container-fliud">
@@ -12,76 +32,105 @@
                     </div>
 
                   </div>
+
                   <div class="details col-md-6">
                     <h3 class="product-title">{{ product.name }}</h3>
-                    <div class="rating">
-                      <div class="stars">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                      </div>
+
+                    <div class="stars">
+                      {% for i in 1..5 %}
+                          {% if i <= sumratings %}
+                            <span class="fa fa-star checked"></span>
+                          {% else %}
+                            <span class="fa fa-star"></span>
+                            {% endif %}
+                      {% endfor %}
                     </div>
+
+                    <h4 class="seller" >Added by {{ product.user.username }}</h4>
                     <p class="product-description">{{ product.description }}</p>
 
-                    <h4>price start: <span>{{ product.pricestart }} €</span></h4>
-                    <h4 class="price">current price: <span>{{ product.price }} €</span></h4>
-                    <h4>buy out: <span>{{ product.buyout }} €</span></h4>
-                    <p>User have bids this product <strong>{{  bids | length }}</strong> times</p>
+                    {% if "now"|date('Ymd')  > product.endingdate|date('Ymd') %}
+                        <div class="alert alert-danger">this product is not avaible</div>
+                    {% else %}
+                        <h4>price start: <span>{{ product.pricestart }} €</span></h4>
+                        <h4 class="price">current price: <span>{{ product.price }} €</span></h4>
+                        <h4>buy out: <span>{{ product.buyout }} €</span></h4>
+                        <p>
+                            Users has bid on this product <strong>{{  bids | length }}</strong> times.
+                            {% if not bids is empty %}
+                                <a href="{{ path('product_show_bids', { 'id': product.id }) }}">(show history)</a>
+                            {% endif %}
+                        </p>
 
-                    {% set sumratings = 0 %}
-                    {% for rating in rates %}
-                      {% set sumratings = sumratings + rating.value %}
-                    {% endfor %}
-
-                    <p class="vote"><strong>{{  (sumratings / rates|length) | round }} / 5</strong> is the average note of this product! <strong>( {{ rates | length }} votes)</strong></p>
-                    <div class="action">
-
-                      {{ form_start(form) }}
-                          <p>{{ form_widget(form) }}
-                          <input type="submit" value="Bid" class="btn btn-warning btn-md"/></p>
-                          <p>{{ error }}</p>
-                      {{ form_end(form) }}
-
+                        <p class="vote">
+                            <strong>{{  sumratings }} / 5</strong>
+                             is the average note of this product!
+                             {% if not rates is empty %}
+                                 <a href="{{ path('product_show_comments', { 'id': product.id }) }}"><strong>( {{ rates | length }} votes)</strong></a>
+                             {% endif %}
+                             <a class="btn btn-primary btn-outline btn-xs" href="{{ path('rate_new', { 'id': product.id, 'type': 'product' }) }}">Rate</a>
+                        </p>
+                        <div class="action">
+                        {% if app.user %}
+                            {{ form_start(form) }}
+                                <p>{{ form_widget(form) }}
+                                <input type="submit" value="Bid" class="btn btn-info btn-outline btn-md largebutton"/></p>
+                            {{ form_end(form) }}
+                            {% if error != '' %}
+                                <div class="alert alert-danger">{{ error }}</div>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-        </div>
-        <h3> Last comment</h3>
-        <div>
-            {% set bid = bids | last %}
-            <div class="alert alert-info">
-               Last bid:<strong> {{ bid.amount }} €</strong> has been bade by {{ bid.user.username }}
-            </div>
-        </div>
-        <div class="panel panel-default">
-            {% set rate = rates | last %}
-            <div class="panel-heading">
-              <p>Date: {{ rate.date|date('Y-m-d') }} by {{ rate.name }}</p>
-            </div>
-            <div class="panel-body">
-              <p>Rate: {{ rate.value }}</p>
-              <p>Comment: {{ rate.comment }}</p>
-            </div>
-        </div>
 
-        <ul>
-            <li>
-                <a href="{{ path('product_index') }}">Back to the list</a>
-            </li>
-            <li>
-                <a href="{{ path('product_edit', { 'id': product.id }) }}">Edit</a>
-            </li>
-            <li>
-                <a href="{{ path('rate_new', { 'id': product.id, 'type': 'product' }) }}">Rate</a>
-            </li>
-            <li>
-                {{ form_start(delete_form) }}
-                    <input type="submit" value="Delete">
-                {{ form_end(delete_form) }}
-            </li>
-        </ul>
+        {% if not bids is empty %}
+            <h3> Last bid</h3>
+            <div classe="separation">
+                {% set bid = bids | last %}
+                <div class="alert alert-info">
+                   Last bid:<strong> {{ bid.amount }} €</strong> has been bade by {{ bid.user.username ?? 'Unknown'}}
+                </div>
+            </div>
+        {% else %}
+            <div class="alert alert-warning separation">
+               There is no bids on this article yet.
+            </div>
+        {% endif %}
+
+        {% if not rates is empty %}
+            <h3> Last comment</h3>
+            <div class="panel panel-default">
+                {% set rate = rates | last %}
+                <div class="panel-heading">
+                  <p>Date: {{ rate.date|date('Y-m-d') }} by {{ rate.name }}</p>
+                </div>
+            <div class="panel-body">
+                  <p>
+                      <div class="stars">
+                        Rate :
+                        {% set value = (rate.value | round) %}
+                        {% for i in 1..5 %}
+                            {% if i <= value %}
+                              <span class="fa fa-star checked"></span>
+                            {% else %}
+                              <span class="fa fa-star"></span>
+                              {% endif %}
+                        {% endfor %}
+                      </div>
+                  </p>
+                  <p>Comment: {{ rate.comment }}</p>
+                </div>
+            </div>
+
+        {% else %}
+            <div class="alert alert-warning">
+               There is no comments on this article yet.
+            </div>
+        {% endif %}
+    </div>
+
 {% endblock %}

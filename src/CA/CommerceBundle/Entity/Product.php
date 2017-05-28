@@ -42,7 +42,7 @@ class Product
     private $name;
 
     /**
-     * @var string
+     * @var text
      *
      * @ORM\Column(name="description", type="text")
      */

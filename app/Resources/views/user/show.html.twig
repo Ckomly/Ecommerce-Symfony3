@@ -1,8 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>User</h1>
+    <div class="separation">
+    {{ form_start(delete_form) }}
+        <a class="btn btn-primary btn-outline" href="{{ path('user_index') }}">Back to the list</a>
+        <a class="btn btn-warning btn-outline" href="{{ path('user_edit', { 'id': user.id }) }}">Edit</a>
+        <input type="submit" value="Delete" class="btn btn-danger btn-outline">
+    {{ form_end(delete_form) }}
+    </div>
 
+    <h1>{{ user.username }}</h1>
     <table>
         <tbody>
             <tr>
@@ -28,32 +35,37 @@
         </tbody>
     </table>
 
+    {% if not bids is empty %}
+    <h3> Last bid <a class="btn btn-info btn-outline" href="{{ path('product_show_bids', { 'id': user.id }) }}">Edit</a></h3>
+    <div classe="separation">
+        {% set bid = bids | last %}
+        <div class="alert alert-info">
+           Last bid:<strong> {{ bid.amount }} €</strong> has been bade by {{ bid.user.username }}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if not rates is empty %}
+    <h3> Last comment</h3>
     <div class="panel panel-default">
-        {% for rate in rates %}
+        {% set rate = rates | last %}
         <div class="panel-heading">
-          <p>Date: {{ rate.date|date('Y-m-d') }} by {{ rate.name }}</p>
+          <p>Date: <strong>{{ rate.date|date('Y-m-d') }}</strong> by <strong>{{ rate.name }}</strong></p>
         </div>
         <div class="panel-body">
-          <p>Rate: {{ rate.value }}</p>
+          <div class="stars">
+            Rate :
+            {% set value = (rate.value | round) %}
+            {% for i in 1..5 %}
+                {% if i <= value %}
+                  <span class="fa fa-star checked"></span>
+                {% else %}
+                  <span class="fa fa-star"></span>
+                  {% endif %}
+            {% endfor %}
+          </div>
           <p>Comment: {{ rate.comment }}</p>
         </div>
-        {% endfor %}
     </div>
-
-    <ul>
-        <li>
-            <a href="{{ path('user_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('user_edit', { 'id': user.id }) }}">Edit</a>
-        </li>
-        <li>
-            <a href="{{ path('rate_new', { 'id': user.id, 'type': 'user' }) }}">Rate</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    {% endif %}
 {% endblock %}

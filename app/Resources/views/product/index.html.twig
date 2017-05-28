@@ -1,38 +1,44 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Products list</h1>
+    <div class="container">
+        <h2>
+            Product's list  <a class="btn btn-primary btn-outline" href="{{ path('product_new') }}">Create a new product</a>
+        </h2>
+    </div>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for product in products %}
-            <tr>
-                <td><a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.id }}</a></td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.description }}</td>
-                <td>{{ product.price }}</td>
-                <td>
-                    <a href="{{ path('product_show', { 'id': product.id }) }}" class="btn btn-outline-primary">show</a>
-                    <a href="{{ path('product_edit', { 'id': product.id }) }}" class="btn btn-outline-primary">edit</a>
-                    <a href="{{ path('rate_new', { 'id': product.id, 'type': 'product' }) }}" class="btn btn-outline-primary">Rate</a>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    {% for product in products %}
+    <div class="col-xs-12 col-sm-6 col-md-3" style="margin-top:2em;">
+          <div class="col-item">
+              <div class="post-img-content">
+                  <img src="http://placehold.it/350x260" class="img-responsive" />
+                  <span class="post-title">
+                      <b><a href="{{ path('product_show', { 'id': product.id }) }}">{{product.name}}</a></b><br>
+                      <b>{{product.category.name ?? 'no category'}}</b>
+                  </span>
+                  {% if "now"|date('Ymd')  > product.endingdate|date('Ymd') %}
+                      <span class="round-tag out">Out</span>
+                  {% else %}
+                      <span class="round-tag">{{product.price}} €</span>
+                  {% endif %}
+              </div>
+              <div class="info">
+                  <div class="row">
+                      <div class="price col-md-10">
+                          <h5>End the : {{ product.endingdate | date('Y-m-d')}}</h5>
+                          <p>Added by {{ product.user.username }}</p>
+                      </div>
+                  </div>
+                  <div class="separator clear-left">
+                      <p class="btn-details">
+                          <a href="{{ path('product_show', { 'id': product.id }) }}">more details</a>
+                      </p>
+                  </div>
+                  <div class="clearfix">
+                  </div>
+              </div>
+          </div>
+      </div>
+    {% endfor %}
 
-    <ul>
-        <li>
-            <a href="{{ path('product_new') }}">Create a new product</a>
-        </li>
-    </ul>
 {% endblock %}

@@ -12,6 +12,7 @@
     <ul class="nav navbar-nav navbar-right">
       {% if app.user %}
           <p class="navbar-brand"> Connected as {{ app.user.username }} </p>
+          <li><a href="{{ path('user_show', { 'id': app.user.id }) }}">My profil</a></li>
           <li><a href="{{ path('user_list_products', { 'id': app.user.id }) }}">My products</a></li>
           <li><a href="{{ path('logout') }}">Logout</a></li>
       {% else %}

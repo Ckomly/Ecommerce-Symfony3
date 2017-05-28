@@ -21,32 +21,34 @@ class __TwigTemplate_4041d77ae6f63ff84d4b2723148b97083b2b9df3fe38931e6e7d851b930
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_36343cc908ed9c493403b2fbdbebb7ef26f9428c57657370e1e82564ed518f60 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_36343cc908ed9c493403b2fbdbebb7ef26f9428c57657370e1e82564ed518f60->enter($__internal_36343cc908ed9c493403b2fbdbebb7ef26f9428c57657370e1e82564ed518f60_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "rate/new.html.twig"));
+        $__internal_935dd98ff7e28bb4461e6b03a7b5dde062a9e5a465554ec3a54ca83e6d6dd659 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_935dd98ff7e28bb4461e6b03a7b5dde062a9e5a465554ec3a54ca83e6d6dd659->enter($__internal_935dd98ff7e28bb4461e6b03a7b5dde062a9e5a465554ec3a54ca83e6d6dd659_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "rate/new.html.twig"));
 
-        $__internal_0f0e65767b2aa083d2e1af23ec387375cd0aa714d6ccfe05b98d98b0cd6f0d80 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_0f0e65767b2aa083d2e1af23ec387375cd0aa714d6ccfe05b98d98b0cd6f0d80->enter($__internal_0f0e65767b2aa083d2e1af23ec387375cd0aa714d6ccfe05b98d98b0cd6f0d80_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "rate/new.html.twig"));
+        $__internal_b136b5fba24de0cef707a75e7f2aa2a258782b185e991455bbe8aa56cafeedff = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b136b5fba24de0cef707a75e7f2aa2a258782b185e991455bbe8aa56cafeedff->enter($__internal_b136b5fba24de0cef707a75e7f2aa2a258782b185e991455bbe8aa56cafeedff_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "rate/new.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_36343cc908ed9c493403b2fbdbebb7ef26f9428c57657370e1e82564ed518f60->leave($__internal_36343cc908ed9c493403b2fbdbebb7ef26f9428c57657370e1e82564ed518f60_prof);
+        $__internal_935dd98ff7e28bb4461e6b03a7b5dde062a9e5a465554ec3a54ca83e6d6dd659->leave($__internal_935dd98ff7e28bb4461e6b03a7b5dde062a9e5a465554ec3a54ca83e6d6dd659_prof);
 
         
-        $__internal_0f0e65767b2aa083d2e1af23ec387375cd0aa714d6ccfe05b98d98b0cd6f0d80->leave($__internal_0f0e65767b2aa083d2e1af23ec387375cd0aa714d6ccfe05b98d98b0cd6f0d80_prof);
+        $__internal_b136b5fba24de0cef707a75e7f2aa2a258782b185e991455bbe8aa56cafeedff->leave($__internal_b136b5fba24de0cef707a75e7f2aa2a258782b185e991455bbe8aa56cafeedff_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_c4d7fa0f33a54d804dc3ffcd78f5da7b21ec9020d7213d73bdd95bb5479be021 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_c4d7fa0f33a54d804dc3ffcd78f5da7b21ec9020d7213d73bdd95bb5479be021->enter($__internal_c4d7fa0f33a54d804dc3ffcd78f5da7b21ec9020d7213d73bdd95bb5479be021_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_f70c0598f5790c115847fcaf644bc9c4f5a64790ad524eb35e579add161e7bb6 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_f70c0598f5790c115847fcaf644bc9c4f5a64790ad524eb35e579add161e7bb6->enter($__internal_f70c0598f5790c115847fcaf644bc9c4f5a64790ad524eb35e579add161e7bb6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_3fe778fb2daf0064cf241609da670c622ed5f626ab789a10996eba981b9d5cbe = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_3fe778fb2daf0064cf241609da670c622ed5f626ab789a10996eba981b9d5cbe->enter($__internal_3fe778fb2daf0064cf241609da670c622ed5f626ab789a10996eba981b9d5cbe_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_d6c05bebc869ba7f87a8071f8d91a5fad39060f8f849b70b465cbec32bffe75b = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_d6c05bebc869ba7f87a8071f8d91a5fad39060f8f849b70b465cbec32bffe75b->enter($__internal_d6c05bebc869ba7f87a8071f8d91a5fad39060f8f849b70b465cbec32bffe75b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
-        echo "    <h1>Rate creation</h1>
+        echo "    <h1>";
+        echo twig_escape_filter($this->env, $this->getAttribute(($context["product"] ?? $this->getContext($context, "product")), "name", array()), "html", null, true);
+        echo "'s rating</h1>
 
     ";
         // line 6
@@ -63,10 +65,10 @@ class __TwigTemplate_4041d77ae6f63ff84d4b2723148b97083b2b9df3fe38931e6e7d851b930
         echo "
 ";
         
-        $__internal_3fe778fb2daf0064cf241609da670c622ed5f626ab789a10996eba981b9d5cbe->leave($__internal_3fe778fb2daf0064cf241609da670c622ed5f626ab789a10996eba981b9d5cbe_prof);
+        $__internal_d6c05bebc869ba7f87a8071f8d91a5fad39060f8f849b70b465cbec32bffe75b->leave($__internal_d6c05bebc869ba7f87a8071f8d91a5fad39060f8f849b70b465cbec32bffe75b_prof);
 
         
-        $__internal_c4d7fa0f33a54d804dc3ffcd78f5da7b21ec9020d7213d73bdd95bb5479be021->leave($__internal_c4d7fa0f33a54d804dc3ffcd78f5da7b21ec9020d7213d73bdd95bb5479be021_prof);
+        $__internal_f70c0598f5790c115847fcaf644bc9c4f5a64790ad524eb35e579add161e7bb6->leave($__internal_f70c0598f5790c115847fcaf644bc9c4f5a64790ad524eb35e579add161e7bb6_prof);
 
     }
 
@@ -82,7 +84,7 @@ class __TwigTemplate_4041d77ae6f63ff84d4b2723148b97083b2b9df3fe38931e6e7d851b930
 
     public function getDebugInfo()
     {
-        return array (  62 => 9,  57 => 7,  53 => 6,  49 => 4,  40 => 3,  11 => 1,);
+        return array (  64 => 9,  59 => 7,  55 => 6,  49 => 4,  40 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -98,7 +100,7 @@ class __TwigTemplate_4041d77ae6f63ff84d4b2723148b97083b2b9df3fe38931e6e7d851b930
         return new Twig_Source("{% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Rate creation</h1>
+    <h1>{{ product.name}}'s rating</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}

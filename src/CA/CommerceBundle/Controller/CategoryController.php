@@ -33,16 +33,23 @@ class CategoryController extends Controller
      */
     public function newAction(Request $request)
     {
+        if(!$this->getUser()){
+          return $this->render('CACommerceBundle:Session:login.html.twig', array(
+              'last_username' => '',
+              'error' => array('action' => 'create','entity' => 'category'),
+          ));
+        }
+
         $category = new Category();
         $form = $this->createForm('CA\CommerceBundle\Form\CategoryType', $category);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $params = $request->request->get('ca_commercebundle_category');
             // l'attribut 'category' sera renvoyé sous la forme d'un objet.
             // on va donc recuperer uniquement l'id de l'objet renvoyé.
-            $cat = $category->getCategory()->getId();
-            $category->setCategory($cat);
+            $category->setCategory($params['category']);
             $em->persist($category);
             $em->flush();
 
@@ -61,9 +68,12 @@ class CategoryController extends Controller
      */
     public function showAction(Category $category)
     {
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('CACommerceBundle:Category')->findBy(array('category' => $category->getId()));
         $deleteForm = $this->createDeleteForm($category);
 
         return $this->render('category/show.html.twig', array(
+            'categories' => $categories,
             'category' => $category,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -75,6 +85,13 @@ class CategoryController extends Controller
      */
     public function editAction(Request $request, Category $category)
     {
+        if(!$this->getUser()){
+          return $this->render('CACommerceBundle:Session:login.html.twig', array(
+              'last_username' => '',
+              'error' => array('action' => 'edit','entity' => 'category'),
+          ));
+        }
+
         $deleteForm = $this->createDeleteForm($category);
         $editForm = $this->createForm('CA\CommerceBundle\Form\CategoryType', $category);
         $editForm->handleRequest($request);
@@ -98,6 +115,13 @@ class CategoryController extends Controller
      */
     public function deleteAction(Request $request, Category $category)
     {
+        if(!$this->getUser()){
+          return $this->render('CACommerceBundle:Session:login.html.twig', array(
+              'last_username' => '',
+              'error' => array('action' => 'delete','entity' => 'category'),
+          ));
+        }
+
         $form = $this->createDeleteForm($category);
         $form->handleRequest($request);
 

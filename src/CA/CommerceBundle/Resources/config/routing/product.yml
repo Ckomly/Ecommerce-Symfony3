@@ -8,10 +8,15 @@ product_show:
     defaults: { _controller: "CACommerceBundle:Product:show" }
     methods:  [GET, POST]
 
-# product_show:
-#     path:     /{id}/show
-#     defaults: { _controller: "CACommerceBundle:Bid:new" }
-#     methods:  [PUT]
+product_show_comments:
+    path:     /{id}/show/rates
+    defaults: { _controller: "CACommerceBundle:Rate:show" }
+    methods:  [GET]
+
+product_show_bids:
+    path:     /{id}/show/bids
+    defaults: { _controller: "CACommerceBundle:Bid:show" }
+    methods:  [GET]
 
 product_new:
     path:     /new

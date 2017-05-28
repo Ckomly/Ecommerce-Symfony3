@@ -21,7 +21,7 @@ user_edit:
 user_delete:
     path:     /{id}/delete
     defaults: { _controller: "CACommerceBundle:User:delete" }
-    methods:  DELETE
+    methods:  [DELETE]
 
 user_list_products:
     path:     /{id}/products

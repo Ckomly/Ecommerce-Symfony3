@@ -2,6 +2,7 @@
 
 namespace CA\CommerceBundle\Controller;
 
+use CA\CommerceBundle\Entity\Product;
 use CA\CommerceBundle\Entity\Rate;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,14 +34,22 @@ class RateController extends Controller
      */
     public function newAction(Request $request)
     {
+        if(!$this->getUser()){
+          return $this->render('CACommerceBundle:Session:login.html.twig', array(
+              'last_username' => '',
+              'error' => array('action' => 'create','entity' => 'rate'),
+          ));
+        }
+
         $em = $this->getDoctrine()->getManager();
         $rate = new Rate();
         $form = $this->createForm('CA\CommerceBundle\Form\RateType', $rate);
         $form->handleRequest($request);;
         $type = $request->query->get('type');
+        $id = $request->query->get('id');
+        $product = $em->getRepository('CACommerceBundle:Product')->find($id);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $id = $request->query->get('id');
             $name = $this->getUser()->getUsername();
             if ($type == 'product'){
               $product = $em->getRepository('CACommerceBundle:Product')->find($id);
@@ -70,6 +79,7 @@ class RateController extends Controller
         }
 
         return $this->render('rate/new.html.twig', array(
+            'product' => $product,
             'rate' => $rate,
             'form' => $form->createView(),
         ));
@@ -79,13 +89,21 @@ class RateController extends Controller
      * Finds and displays a rate entity.
      *
      */
-    public function showAction(Rate $rate)
+    public function showAction($id)
     {
-        $deleteForm = $this->createDeleteForm($rate);
+        $product = new Product();
+        $em = $this->getDoctrine()->getManager();
+        $product = $em->getRepository('CACommerceBundle:Product')->find($id);
+
+        if ($product === null) {
+          throw new NotFoundHttpException("This product doesn't have rates.");
+        }
+
+        $listRates = $em->getRepository('CACommerceBundle:Rate')->findBy(array('product' => $product));
 
         return $this->render('rate/show.html.twig', array(
-            'rate' => $rate,
-            'delete_form' => $deleteForm->createView(),
+            'product' => $product,
+            'listRates' =>$listRates
         ));
     }
 
@@ -95,6 +113,12 @@ class RateController extends Controller
      */
     public function editAction(Request $request, Rate $rate)
     {
+        if(!$this->getUser()){
+          return $this->render('CACommerceBundle:Session:login.html.twig', array(
+              'last_username' => '',
+              'error' => array('action' => 'edit','entity' => 'rate'),
+          ));
+        }
         $deleteForm = $this->createDeleteForm($rate);
         $editForm = $this->createForm('CA\CommerceBundle\Form\RateType', $rate);
         $editForm->handleRequest($request);
@@ -118,6 +142,12 @@ class RateController extends Controller
      */
     public function deleteAction(Request $request, Rate $rate)
     {
+        if(!$this->getUser()){
+          return $this->render('CACommerceBundle:Session:login.html.twig', array(
+              'last_username' => '',
+              'error' => array('action' => 'delete','entity' => 'rate'),
+          ));
+        }
         $form = $this->createDeleteForm($rate);
         $form->handleRequest($request);
 

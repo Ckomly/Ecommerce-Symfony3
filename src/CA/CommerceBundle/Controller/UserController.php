@@ -66,11 +66,13 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $rates = $em->getRepository('CACommerceBundle:Rate')->findByUser($user);
+        $bids = $em->getRepository('CACommerceBundle:Bid')->findByUser($user);
 
         $deleteForm = $this->createDeleteForm($user);
 
         return $this->render('user/show.html.twig', array(
             'user' => $user,
+            'bids' => $bids,
             'rates' => $rates,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -82,6 +84,13 @@ class UserController extends Controller
      */
     public function editAction(Request $request, User $user)
     {
+        if(!$this->getUser()){
+          return $this->render('CACommerceBundle:Session:login.html.twig', array(
+              'last_username' => '',
+              'error' => array('action' => 'edit','entity' => 'user'),
+          ));
+        }
+
         $deleteForm = $this->createDeleteForm($user);
         $editForm = $this->createForm('CA\CommerceBundle\Form\UserType', $user);
         $editForm->handleRequest($request);
@@ -105,6 +114,13 @@ class UserController extends Controller
      */
     public function deleteAction(Request $request, User $user)
     {
+        if(!$this->getUser()){
+          return $this->render('CACommerceBundle:Session:login.html.twig', array(
+              'last_username' => '',
+              'error' => array('action' => 'delete','entity' => 'user'),
+          ));
+        }
+
         $form = $this->createDeleteForm($user);
         $form->handleRequest($request);
 

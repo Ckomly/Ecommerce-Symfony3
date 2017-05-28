@@ -1,36 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Bid</h1>
+    <h1><strong>{{ product.name }}</strong>'s bids history</h1>
+    <p class="btn btn-primary btn-outline btm-sm"><a href="{{ path('product_show', { 'id': product.id }) }}"><strong>Back to the product</strong></a> </p>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ bid.id }}</td>
-            </tr>
-            <tr>
-                <th>Amount</th>
-                <td>{{ bid.amount }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{% if bid.date %}{{ bid.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="separation">
+        {% for bid in listBids %}
+        <div class="alert alert-info">
+           <strong> {{ bid.amount }} €</strong> has been bade
+           by <strong>{{ bid.user.username ?? 'Unknown' }}</strong>
+           the <strong>{{ bid.date | date('Y-m-d') }}</strong>
+           at <strong>{{ bid.date | date('H:i') }}</strong>
+        </div>
+        {% endfor %}
+    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('bid_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('bid_edit', { 'id': bid.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}
